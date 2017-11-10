@@ -13,6 +13,7 @@ module Nirvana
       system %[nirvana-websocket #{ARGV.join(' ')} &]
       html_file = File.expand_path(File.dirname(__FILE__) + '/nirvana/public/index.html')
       RUBY_PLATFORM[/darwin/i]  ? system('open', html_file) : puts(html_file)
+      RUBY_PLATFORM[/linux/i]  ? system('xdg-open', html_file) : puts(html_file)
     end
   end
 end
